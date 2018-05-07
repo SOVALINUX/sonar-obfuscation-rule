@@ -1,0 +1,13 @@
+{
+  "title": "PathParam annotation is not ready for obfuscation",
+  "type": "BUG",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "5min"
+  },
+  "tags": [
+    "pitfall"
+  ],
+  "defaultSeverity": "Blocker"
+}

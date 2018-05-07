@@ -1,0 +1,10 @@
+<p>This rule detects usage of annotation @RequestParam without specifying value (i.e. parameter name). So it can lead to errors after
+    obfuscation</p>
+<h2>Noncompliant Code Example</h2>
+<pre>
+... endpointMethod(@RequestParam int providerIndex) {...}
+</pre>
+<h2>Compliant Solution</h2>
+<pre>
+... endpointMethod(@RequestParam("providerIndex") int providerIndex) {...}
+</pre>
