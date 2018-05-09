@@ -1,0 +1,13 @@
+<p>This rule detects usage of parameter annotations without specifying value (i.e. parameter name). So it can lead to errors
+    after obfuscation.</p>
+<p>Validated annotations are @PathParam, @RequestParam, @QueryParam</p>
+<h2>Noncompliant Code Example</h2>
+<pre>
+... endpointMethod(@PathParam String type) {...}
+... endpointMethod(@RequestParam(required = false) String type) {...}
+</pre>
+<h2>Compliant Solution</h2>
+<pre>
+... endpointMethod(@PathParam(value = "type") String type) {...}
+... endpointMethod(@RequestParam("type") String type) {...}
+</pre>

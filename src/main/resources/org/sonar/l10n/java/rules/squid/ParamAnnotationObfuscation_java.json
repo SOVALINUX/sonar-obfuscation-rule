@@ -1,5 +1,5 @@
 {
-  "title": "PathParam annotation is not ready for obfuscation",
+  "title": "Parameter annotations are not ready for obfuscation",
   "type": "BUG",
   "status": "ready",
   "remediation": {
