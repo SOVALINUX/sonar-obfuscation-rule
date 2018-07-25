@@ -52,5 +52,15 @@ public class SomeRestController {
     public ModelAndView otherArgument(@QueryParam(required = false) int providerIndex) {
         //....
     }
+    
+    @RequestMapping(value = "/explicitName")
+    public ModelAndView explicitName(@RequestParam(name = "providerIndex") int providerIndex) throws Exception {
+        //....
+    }
+
+    @RequestMapping(value = "/explicitName")// Noncompliant {{RequestParam annotation should have explicitly set value}}
+    public ModelAndView explicitNameNotSet(@RequestParam(nameParam = "test") int providerIndex) throws Exception {
+        //....
+    }
 
 }

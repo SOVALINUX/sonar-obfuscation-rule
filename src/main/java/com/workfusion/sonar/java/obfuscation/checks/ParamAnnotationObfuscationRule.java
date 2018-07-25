@@ -37,9 +37,11 @@ public class ParamAnnotationObfuscationRule extends BaseTreeVisitor implements J
                 final String annotationType = annotation.annotationType().toString();
                 Predicate<ExpressionTree> hasExplicitValue = arg -> ((arg instanceof AssignmentExpressionTree) && (
                         ((AssignmentExpressionTree) arg).variable().toString().equals("value")));
+                Predicate<ExpressionTree> hasExplicitName = arg -> ((arg instanceof AssignmentExpressionTree) && (
+                        ((AssignmentExpressionTree) arg).variable().toString().equals("name")));
                 Predicate<ExpressionTree> hasImplicitValue = arg -> arg.symbolType().toString().equals("String");
                 Arguments arguments = annotation.arguments();
-                if (arguments.isEmpty() || !arguments.stream().anyMatch(hasImplicitValue.or(hasExplicitValue))) {
+                if (arguments.isEmpty() || !arguments.stream().anyMatch(hasImplicitValue.or(hasExplicitValue).or(hasExplicitName))) {
                     context.reportIssue(this, tree, annotationType + " annotation should have explicitly set value");
                 }
             });
